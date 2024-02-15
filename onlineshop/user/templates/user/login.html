@@ -1,0 +1,14 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+login
+    {% csrf_token %}
+    <p>
+        username: {{form.username}}
+    </p>
+    <p>
+        password: {{form.password}}
+    </p>
+    <button>Enter</button>
+
+{% endblock %}

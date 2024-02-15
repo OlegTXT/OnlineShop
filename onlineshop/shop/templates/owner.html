@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Hello
+{% endblock %}
+
+{% block content %}
+	{% for owner in owner_products %}
+		<p>{{ owner }}
+            - <a href="{% url 'update_product' owner.pk%}">Update</a>
+            - <a href="{% url 'product-detail' owner.pk %}">Detail</a>
+            - <a href="{% url 'product-delete' owner.pk%}">Delete</a>
+        </p>
+	{% endfor %}
+
+{% endblock %}

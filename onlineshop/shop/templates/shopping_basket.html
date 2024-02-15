@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Shoping Basket
+{% endblock %}
+
+{% block content %}
+    {% for product in products %}
+    	<p>{{ product }} - {{ product.quantity }} - {{ product.sum }} - <a href="{% url 'product-detail' product.product.pk %}">detail</a> - <a href="{% url 'delete_shopping_basket' product.pk %}">Delete from basket</a> - <a href="{% url 'placing_an_order' product.pk%}">placing an order</a></p>
+    {% endfor %}
+
+{% endblock %}

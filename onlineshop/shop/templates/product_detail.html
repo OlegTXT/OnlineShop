@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Product detail
+{% endblock %}
+
+{% block content %}
+    <p>title: {{ product.name }}</p>
+    <p>category: {{ product.category }}</p>
+    <p>owner: {{ product.creator }}</p>
+    <p>description: {{ product.description }}</p>
+    <p>price: ${{ product.price }}</p>
+    <p>quantity: {{ product.quantity }}</p>
+
+    {% if request.user.is_superuser %}
+        - <a href="{% url 'product-delete' product.pk%}">Delete</a>
+    {% endif %}
+{% endblock %}

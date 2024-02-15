@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Welcome
+{% endblock %}
+
+{% block content %}
+	{% for product in products %}
+		<p>{{ product }} - <a href="{% url 'product-detail' product.pk %}">Detail</a> - <a href="{% url 'add_shopping_basket' product.pk %}">Добавить в корзину</a>
+        {% if request.user.is_superuser %}
+            - <a href="{% url 'product-delete' product.pk%}">Delete</a>
+        {% endif %}
+        </p>
+	{% endfor %}
+
+{% endblock %}

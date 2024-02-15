@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Owner list
+{% endblock %}
+
+{% block content %}
+    {% if request.user.is_superuser %}
+        {% for owner in owners %}
+            <p><a href="{% url 'owner' owner.pk %}">{{ owner }}</a></p>
+        {% endfor %}
+    {% else %}
+        <a href="{% url 'product-list' %}">Тебе сюда нельзя, нажми на меня и уйди отсюда.</a>
+    {% endif %}
+
+
+{% endblock %}
